@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Este es el registro</title>
+{% extends 'index.html' %}
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+{%block body%}
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";/>
-
-        <script src="{{url_for('static',filename='js/validacion.js')}}"></script>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos.css') }}"/>
-
-    </head>
-    <body>
+    <section class="jumbotron">
         <div class="container">
-            <header>
-                <div class="jumbotron">
-                    <h1>
-                        Página de registro
-                    </h1>
-                </div>
-            </header>
-
+            <h1  class="display-3">Registrarse</h1>
             <section class="content">
                 {% for message in get_flashed_messages()%}
                     <div class="flash">{{ message}}</div>
@@ -46,6 +29,15 @@
                     <input class="btn btn-primary" type="submit" value="Registrarse">
                 </form>
             </section>
-        </div>
-    </body>
-</html>
+
+     </div>
+    </section>
+
+{% endblock %}
+
+
+
+
+
+
+

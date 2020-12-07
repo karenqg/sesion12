@@ -1,8 +1,10 @@
 from flask import Flask, render_template,request,flash
+from formulario import Contactenos
 
 import utils
 import os #Agregue la libreria os
 import yagmail as yagmail
+
 app = Flask(__name__)
 
 #Ocurrio un eror: The session is unavailable because no secret key was set.
@@ -14,7 +16,7 @@ app.secret_key = os.urandom(24)
 
 @app.route('/')
 def hello_world():
-    return render_template('register.html')
+    return render_template('index.html')
 
 @app.route('/home/')
 def myHome():
@@ -24,9 +26,11 @@ def myHome():
 def login():
     return render_template('login.html')
 
-#@app.route('/contactenos/<string:username>')
-#def contact(username):
-#    return render_template('contactenos.html', username=username)
+@app.route('/contactenos')
+def contactus():
+    formulario = Contactenos()
+    return render_template('contactenos.html',titulo='Contactenos', form= formulario)
+
 @app.route('/register', methods=('GET','POST'))
 def register():
     try:
